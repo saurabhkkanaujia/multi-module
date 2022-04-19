@@ -1,0 +1,53 @@
+<?php include 'header.phtml'; ?>
+<div class="row">
+    <?php include 'sidebar.phtml'; ?>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <div class="d-flex justify-content-between flex-wrap 
+          flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    This week
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+        <h1 class="h3 mb-3 fw-normal">Add Product&nbsp;&nbsp;&nbsp;&nbsp; </h1>
+        <hr>
+        <form class="row g-3" action="" method="POST">
+            <div class="col-md-6">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" name="productName" id="productName">
+            </div>
+            <div class="col-md-6">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" name="category" id="category">
+            </div>
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" name="price" id="price">
+            </div>
+            <div class="col-md-6">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="text" class="form-control" name="stock" id="stock">
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <br>
+                    <input type="submit" class="btn btn-primary" value="Add Product">
+                </div>
+
+            </div>
+        </form>
+
+</div>

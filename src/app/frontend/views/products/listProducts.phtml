@@ -21,7 +21,7 @@
             <th scope="col">Category</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
-            <th scope="col">Action</th>
+           
           </tr>
         </thead>
         <tbody>
@@ -35,8 +35,7 @@
                   <td>" . $value->category . "</td>
                   <td>" . $value->price . "</td>
                   <td>" . $value->stock . "</td>
-                  <td><a href='../admin/products/editProduct?id=".$value->_id."' class='btn btn-success'>Edit</a><button class='btn btn-danger' type='submit' name='deleteProduct' value=" . $value->_id . ">Delete</button></td>
-                  
+                  </td>
                   ";
             }
           }
@@ -46,33 +45,3 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-           <h1>Quick View</h1>
-            <h3 id="product_name"></h3>
-            <h3 id="category"></h3>
-            <h3 id="price"></h3>
-            <h3 id="stock"></h3>
-            <h3 id="additional_fields"></h3>
-            <h3 id="variations"></h3>
-            
-          </div>
-        
-        </div>
-      </div>
-    </div>
-
-</div>
-
-
-

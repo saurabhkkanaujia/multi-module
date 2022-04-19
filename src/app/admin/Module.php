@@ -23,6 +23,7 @@ class Module implements ModuleDefinitionInterface
         $loader->registerNamespaces(
             [
                 'Multiple\Admin\Controllers' => '../app/admin/controllers/',
+                'Multiple\Admin\Components' => '../app/admin/components/',
                 'Multiple\Admin\Models'      => '../app/admin/models/',
                 'Multiple\Admin\Plugins'     => '../app/admin/plugins/',
             ]

@@ -1,0 +1,43 @@
+<?php include 'header.phtml'; ?>
+<div class="row">
+  <?php include 'sidebar.phtml'; ?>
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <div class="d-flex justify-content-between flex-wrap 
+          flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <form action="" method="post">
+        <input class="form-control form-control-dark w-100" type="text" name="search" placeholder="Search" aria-label="Search">
+        <input type="submit" class="btn btn-primary" value="Search">
+      </form>
+    </div>
+
+    <form class="row g-3" action="" method="POST">
+      <div class="col-md-3">
+        <label for="inputtext" class="form-label">Product ID</label>
+        <input type="text" class="form-control set" name="id" value=<?php echo  $data->_id ?>>
+      </div>
+      <div class="col-md-3">
+        <label for="inputtext" class="form-label">Product Name</label>
+        <input type="text" class="form-control" name="product_name" value=<?php echo  $data->product_name ?>>
+      </div>
+      <div class="col-md-3">
+        <label for="inputEmail4" class="form-label">Category</label>
+        <input type="text" class="form-control" name="category" id="inputEmail4" value=<?php echo $data->category ?>>
+      </div>
+      <?php if(isset($data->price)) { ?>
+        <div class="col-md-3">
+          <label for="inputEmail4" class="form-label">Price</label>
+          <input type="text" class="form-control" name="price" id="inputEmail4" value=<?php echo $data->price ?>>
+        </div>
+      <?php } ?>
+      <div class="col-md-3">
+        <label for="inputEmail4" class="form-label">Stock</label>
+        <input type="text" class="form-control" name="stock" id="inputEmail4" value=<?php echo $data->stock ?>>
+      </div>
+
+      <div class="col-12">
+        <br><br>
+        <input type="submit" class="btn btn-primary" name="updateProduct" value="Update">
+
+      </div>
+    </form>

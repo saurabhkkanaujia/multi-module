@@ -37,11 +37,6 @@ class Application extends BaseApplication
          */
         $loader
             ->registerDirs([__DIR__ . '/../app/library/'])
-            ->registerNamespaces(
-                [
-                    'App\Components' => APP_PATH . '/component'
-                ]
-            )
             ->register();
 
         // Registering a router
@@ -57,7 +52,7 @@ class Application extends BaseApplication
                 'action'     => 2,
             ])->setName('frontend');
 
-            $router->add("/public/login", [
+            $router->add("/admin/login", [
                 'module'     => 'admin',
                 'controller' => 'login',
                 'action'     => 'index',
@@ -69,12 +64,29 @@ class Application extends BaseApplication
                 'action'     => 1,
             ])->setName('admin-product');
 
-            $router->add("/public/products/dashboard", [
+            $router->add("/admin/products/addProduct", [
+                'module'     => 'admin',
+                'controller' => 'products',
+                'action'     => 'addProduct',
+            ])->setName('admin-addProduct');
+
+            $router->add("/admin/products-dashboard", [
                 'module'     => 'admin',
                 'controller' => 'products',
                 'action'     => 'dashboard',
-            ])->setName('frontend-product');
+            ])->setName('admin-dashboard');
 
+            $router->add("/admin/products/editProduct", [
+                'module'     => 'admin',
+                'controller' => 'products',
+                'action'     => 'editProduct',
+            ])->setName('admin-editProduct');
+
+            $router->add("/listProducts", [
+                'module'     => 'frontend',
+                'controller' => 'products',
+                'action'     => 'listProducts',
+            ])->setName('admin-editProduct');
 
             return $router;
         });

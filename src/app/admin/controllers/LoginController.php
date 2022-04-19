@@ -2,6 +2,7 @@
 
 namespace Multiple\Admin\Controllers;
 
+use Multiple\Admin\Components\Myescaper;
 use Phalcon\Mvc\Controller;
 
 class LoginController extends Controller
@@ -10,16 +11,13 @@ class LoginController extends Controller
     {
         if ($this->request->isPost()) {
             $postData = $this->request->getPost();
-            print_r($this->escaper($postData['name']));
-            die;
-            $user = $this->mongo->users->findOne(['name'=>$postData['name'], 'email'=>$postData['email']]);
+            $obj = new Myescaper();
+            $user = $this->mongo->users->findOne(['name'=>$obj->sanitize($postData['name']), 'email'=>$obj->sanitize($postData['email'])]);
             if (count($user)>0) {
-                $this->response->redirect('/products/dashboard');
+                $this->response->redirect('../admin/products-dashboard');
             } else {
-                $this->response->redirect('/login');
+                $this->response->redirect('../admin/login');
             }
-            // print_r($this->request->getPost());
-            // die;
         }
     }
 }
