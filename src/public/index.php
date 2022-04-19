@@ -7,6 +7,10 @@ use Phalcon\Mvc\Router;
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Application as BaseApplication;
 use Phalcon\Escaper;
+use Phalcon\Logger;
+
+
+use Phalcon\Logger\Adapter\Stream as ls;
 
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -28,6 +32,21 @@ class Application extends BaseApplication
                 return $mongo->store;
             },
             true
+        );
+
+        $di->set(
+            'logger',
+            function () {
+                $adapter = new ls('../app/logs/main.log');
+                $logger  = new Logger(
+                    'messages',
+                    [
+                        'logger' => $adapter,
+                    ]
+        
+                );
+                return $logger;
+            }
         );
 
         $loader = new Loader();
@@ -90,6 +109,8 @@ class Application extends BaseApplication
 
             return $router;
         });
+
+
 
         $this->setDI($di);
     }

@@ -16,6 +16,7 @@ class LoginController extends Controller
             if (count($user)>0) {
                 $this->response->redirect('../admin/products-dashboard');
             } else {
+                $this->logger->error("Invalid Credentials");
                 $this->response->redirect('../admin/login');
             }
         }
